@@ -29,7 +29,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "aws s3 sync build/ s3://exteriordesignbucket",
+    "prod": "npm run build && npm run deploy"
   },
   "eslintConfig": {
     "extends": [
