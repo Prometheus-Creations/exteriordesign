@@ -1,0 +1,27 @@
+*{
+    background-color: black;
+    font-family: 'papyrus';
+}
+.login-heading {
+    font-family: 'papyrus';
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+
+.post-button {
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  border-radius: 5px;
+  position: relative;
+  margin-left: 50vw;
+  
+}

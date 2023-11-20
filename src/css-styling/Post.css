@@ -1,0 +1,76 @@
+*{
+    background-color: black;
+    font-family: 'papyrus';
+}
+.post-heading {
+    font-family: 'papyrus';
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+
+.postform{
+	border: 1px solid white;
+	margin: 5em;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.vehicle-info{
+	width: auto;
+	padding-top: 0.5em;
+	padding-left: 0.5em;
+	margin: 1em;
+	min-height: 2.5em;
+	resize: vertical;
+
+}
+
+textarea.vehicle-description{
+	margin-left: 1em;
+	margin-right: 1em;
+    min-height: 25em; 
+    resize: vertical;
+	padding: 0.5em;
+}
+
+.vehicle-price{
+	padding-left: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin: 1em;
+	resize: vertical;
+	width: 30%;
+	min-height: 2em;
+}
+
+
+.input-label{
+	margin-top: 1em;
+	margin-left: 1em;
+	font-size: larger;
+}
+
+.notlogged{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5em;
+	margin-top: 5em;
+}
+
+.post-button{
+	padding: 5px 15px;
+	background-color: burlywood; 
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-top: 10px; 
+	margin-bottom: 10px;
+	cursor: pointer;
+	width: 100px;
+}

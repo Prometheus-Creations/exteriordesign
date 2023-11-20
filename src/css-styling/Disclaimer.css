@@ -1,0 +1,17 @@
+*{
+    background-color: black;
+    font-family: 'papyrus';
+}
+.disclaimer-heading {
+    font-family: 'papyrus';
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.paragraph{
+	margin: 3em;
+	text-indent: 1.2em;
+
+}

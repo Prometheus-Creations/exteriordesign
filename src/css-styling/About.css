@@ -1,0 +1,68 @@
+*{
+    background-color: black;
+    font-family: 'papyrus';
+}
+.about-heading {
+    font-family: 'papyrus';
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.about-image{
+    width: 80%;
+    border-radius: 50px;
+    display: block;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.about-paragraph{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    color: white;
+    font-family: 'papyrus';
+    text-indent: 20px;
+}
+
+
+.team-heading{
+    color:burlywood;
+    font-family: 'papyrus';
+    text-align: center;
+    padding: 25px;
+}
+
+.team-images {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap;
+}
+
+.team-images img {
+    max-width: 15%;
+    height: auto;
+    margin: 5px;
+    box-sizing: border-box; 
+    border-radius: 10px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.team-titles {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 15px;
+}
