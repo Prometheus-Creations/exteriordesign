@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-import-module-exports */
 /* eslint-disable import/no-extraneous-dependencies */
-import path from 'path';
-import HtmlWebPackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const config = {
   mode: 'development',
