@@ -1,12 +1,14 @@
+/* eslint-disable no-console */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/order */
+/* eslint-disable prefer-destructuring */
 import React, { useState }  from "react";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import Header from "./Header";
 import Footer from "./Footer";
 import '../css-styling/edit.css'
 import axios from "axios";
-import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
-
 
 function Edit({ isLogged, setIsLogged }) {
 	const location = useLocation();
@@ -50,19 +52,6 @@ function Edit({ isLogged, setIsLogged }) {
 	};
 
 	return (
-		<>
-			{!isLogged ? (
-					<div>
-						<Header isLogged={isLogged} setIsLogged={setIsLogged} />
-							<h1 className="post-heading">Edit A Vehicle</h1>
-							<div className="notlogged">
-								<p>To post a car please log in</p>
-								<Link to="/signin" className="login-button"> Sign In Here!</Link>
-							</div>
-						<Footer />
-					</div>
-
-				) : (
 					<div>
 						<Header  isLogged={isLogged} setIsLogged={setIsLogged}/>
 							<h1 className="edit-heading">Edit Vehicle</h1>
@@ -92,10 +81,8 @@ function Edit({ isLogged, setIsLogged }) {
 						<Footer />
 					</div>
 				)
-			}
-		</>
-		
-	)
+	
+	
 }
 
 export default Edit;
