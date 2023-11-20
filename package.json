@@ -36,6 +36,15 @@
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build:client-dev": "webpack --config webpack.config.js --mode development --watch",
@@ -68,6 +77,7 @@
   "devDependencies": {
     "@babel/core": "^7.23.3",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
     "@types/html-webpack-plugin": "^3.2.9",
