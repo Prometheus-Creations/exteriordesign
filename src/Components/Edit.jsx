@@ -7,7 +7,7 @@ import React, { useState }  from "react";
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import Header from "./Header";
 import Footer from "./Footer";
-import '../css-styling/edit.css'
+import '../css-styling/Edit.css'
 import axios from "axios";
 
 function Edit({ isLogged, setIsLogged }) {
@@ -42,7 +42,7 @@ function Edit({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-    		await axios.put(`/edit/${id}`, vehicleData);
+    		await axios.put(`https://akbarsauto.com/edit/${id}`, vehicleData);
 			setVehicleData({});
 			navigate('/inventory');
 		} 

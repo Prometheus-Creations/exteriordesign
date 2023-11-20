@@ -24,7 +24,7 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const fetchCars = async () => {
         try {
-            const response = await axios.get('/inventory');
+            const response = await axios.get('https://akbarsauto.com/inventory');
             setCars(response.data);
         }
         catch(error) {
@@ -39,7 +39,7 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const deleteCar = async (id) => {
         try {
-            const deletedCar = await axios.delete(`/delete/${id}`);
+            const deletedCar = await axios.delete(`https://akbarsauto.com/delete/${id}`);
             console.log("Deleted Car:", deletedCar);
             fetchCars();
         } catch (error) {
@@ -49,7 +49,7 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const editCar = async (id) => {
         try {
-            const response = await axios.get(`/inventory/${id}`);
+            const response = await axios.get(`https://akbarsauto.com/inventory/${id}`);
             const carData = response.data;
             navigate(`/edit/${id}`, { state: { carData} });
         } catch (error) {

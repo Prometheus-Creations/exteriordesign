@@ -1,10 +1,14 @@
+/* eslint-disable no-console */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState }  from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link } from 'react-router-dom';
+import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 import '../css-styling/Post.css'
-import axios from "axios";
-import { Link } from "react-router-dom";
 
 
 function Post({ isLogged, setIsLogged }) {
@@ -32,7 +36,7 @@ function Post({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.post('http://localhost:3000/post', vehicleData)
+			await axios.post('https://akbarsauto.com/post', vehicleData)
 			setVehicleData({
 				Title: '',
 				Mileage: 0,
