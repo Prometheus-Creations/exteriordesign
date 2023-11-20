@@ -1,7 +1,9 @@
+/* eslint-disable import/no-import-module-exports */
+/* eslint-disable import/no-extraneous-dependencies */
 import path from 'path';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 
-const config = {
+module.exports = {
   mode: 'development',
   entry: './src/Components/index.tsx',
   output: {
@@ -52,5 +54,3 @@ const config = {
   ],
   watch: true,
 };
-
-export default config;
