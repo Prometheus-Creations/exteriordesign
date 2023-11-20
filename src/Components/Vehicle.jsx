@@ -1,10 +1,17 @@
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 import "../css-styling/Vehicle.css"
-import { Link } from 'react-router-dom';
+
 
 function Vehicle({ isLogged, setIsLogged }){
     
@@ -15,10 +22,6 @@ function Vehicle({ isLogged, setIsLogged }){
          "Year: Old to New", "Year: New to Old", "Make: A - Z", "Color: A - Z", "Price: Low to High", "Price: High to Low", "Mileage: Low to High", "Mileage: High to Low",
     ]
 
-    useEffect(() => {
-        fetchCars()
-    }, [])
-
     const fetchCars = async () => {
         try {
             const response = await axios.get('/inventory');
@@ -28,6 +31,10 @@ function Vehicle({ isLogged, setIsLogged }){
             console.error("Error Fetching Data:", error);
         }
     }
+      useEffect(() => {
+        fetchCars()
+    }, [])
+
 
     const deleteCar = async (id) => {
         try {
@@ -74,11 +81,11 @@ function Vehicle({ isLogged, setIsLogged }){
                         <div className="side-by-side">
                             <div>
                                 <h5 className="subtitle">Min</h5>
-                                <input placeholder="Oldest"></input>
+                                <input placeholder="Oldest" />
                             </div>
                             <div>
                                 <h5 className="subtitle">Max</h5>
-                                <input placeholder="Newest"></input>
+                                <input placeholder="Newest" />
                             </div>
                         </div>
                     </div>
@@ -95,11 +102,11 @@ function Vehicle({ isLogged, setIsLogged }){
                             <div className="side-by-side">
                                 <div>
                                     <h5 className="subtitle">Min</h5>
-                                    <input placeholder="Oldest"></input>
+                                    <input placeholder="Oldest" />
                                 </div>
                             <div>
                                 <h5 className="subtitle">Max</h5>
-                                <input placeholder="Newest"></input>
+                                <input placeholder="Newest" />
                             </div>
                         </div>
                     </div>
