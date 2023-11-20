@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
@@ -8,10 +9,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom';
-import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
-import "../css-styling/Vehicle.css"
+import "../css-styling/Vehicle.css";
+
+const axios = require('axios')
 
 
 function Vehicle({ isLogged, setIsLogged }){
