@@ -48,6 +48,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build": "webpack --config webpack.config.cjs",
     "build:client-dev": "webpack --config webpack.config.cjs --mode development --watch",
     "build:client-prod": "webpack --config webpack.config.cjs --mode production ",
     "test": "react-scripts test --watchAll=false",
