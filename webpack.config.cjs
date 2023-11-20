@@ -4,7 +4,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-const config = {
+module.exports = {
   mode: 'development',
   entry: './src/Components/index.tsx',
   output: {
@@ -56,4 +56,3 @@ const config = {
   watch: true,
 };
 
-export default config;
