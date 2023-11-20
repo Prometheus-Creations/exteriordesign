@@ -13,8 +13,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import Header from "./Header";
 import Footer from "./Footer";
 import "../css-styling/Vehicle.css";
-import axios from "axios";
 
+import axios from "axios";
 
 function Vehicle({ isLogged, setIsLogged }){
     
