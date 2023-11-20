@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { initializeApp } from "firebase/app";

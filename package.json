@@ -43,7 +43,7 @@
     "test": "react-scripts test --watchAll=false",
     "test:dev": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src",
+    "lint": "eslint ./src",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky install"
   },
