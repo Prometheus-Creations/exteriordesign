@@ -3,7 +3,7 @@
 import path from 'path';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+const config = {
   mode: 'development',
   entry: './src/Components/index.tsx',
   output: {
@@ -54,3 +54,5 @@ module.exports = {
   ],
   watch: true,
 };
+
+export default config;
