@@ -6,6 +6,6 @@ jest.mock('axios');
 
 test("renders learn react link", () => {
   render(<App />);
- screen.getByText(/learn react/i);
- 
+  const homeElement = screen.getByText(/home/i);
+  expect(homeElement).toBeInTheDocument();
 });
