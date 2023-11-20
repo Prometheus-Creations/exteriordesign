@@ -1,0 +1,128 @@
+*{
+    background-color: black;
+    font-family: 'papyrus';
+    color: white;
+}
+.inventory-heading {
+    font-family: 'papyrus';
+    text-align: center;
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+
+.sort {
+    color: rgb(118, 118, 118);
+    justify-content: space-between;
+    min-height: 40px;  
+    margin-bottom: 1em;
+}
+ 
+h3{
+    color: burlywood;
+    margin-top: 30px;
+}
+
+
+h4{
+    color: white;
+
+}
+
+.side-by-side{
+    display: flex;
+    flex-direction: row;
+}
+
+.side-by-side input {
+    min-height: 40px;
+}
+.filter-side{
+    margin-left: 3em;
+    padding: 1em;
+}
+
+
+.vehicles-side{
+    min-width: 65%;
+}
+
+.subtitle{
+    color: white;
+}
+
+.vehicles{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+    padding: 1.5em;
+    width: 100%;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.image{
+    border: 1px solid green;
+    min-width: 40%;
+
+}
+
+.info{
+    margin: 1.5em;
+    min-width: 55%;
+    position: relative;
+}
+
+h4{
+    color: burlywood;
+    padding: 0.5em;
+}
+h5{
+    color: burlywood;
+}
+
+
+.price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: large;
+    color: burlywood;
+}
+
+.paragraph{
+    color: white;
+}
+
+@media (max-width: 1400px) {
+    .filter-side {
+        display: none;
+    }
+}
+@media (max-width: 1100px) {
+    .price {
+        display: none;
+    }
+}
+
+.post-button{
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  border-radius: 5px;
+  position: relative;
+  margin-left: 50vw;
+}

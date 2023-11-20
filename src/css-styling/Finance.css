@@ -1,0 +1,154 @@
+*{
+    background-color: black;
+    font-family: 'papyrus';
+}
+
+.finance-heading{
+    font-family: 'papyrus';
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.form {
+    margin: 30px 100px;
+    border: 1px solid white;
+    height: auto;
+    padding: 20px;
+    position: relative;
+}
+
+hr{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.section-title{
+    color: burlywood;
+    padding: 10px;
+}
+
+.button{
+    margin-top: 10px;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 30px;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 20px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px 5px;
+    color: #fff;
+    background-color: burlywood;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+}
+
+.button:hover {
+    transform: scale(1.04);
+    background-color: #d2a069; 
+}
+
+input{
+    color: white;
+    height: 40px;
+    padding-left: 10px;
+    width: 100%; 
+    margin: 10px;
+}
+
+.name{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  
+}
+
+.contact{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    
+}
+
+.contact input {
+   width: 100%;
+}
+
+.personal-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.address{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.address input {
+    width: 100%;
+}
+.address-2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.employer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.employer input {
+   width: 100%;
+}
+
+.employer-2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.employer-2 input {
+    width: 100%;
+}
+
+.vehicle{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.down input{
+    width: 300px;
+}
+
+.personal-info input[placeholder="Social-Security-Number"]::placeholder {
+    font-size: 12px;
+}
+
+.personal-info input[placeholder="Birth Date(mm//dd/yyyy)"]::placeholder {
+    font-size: 11px;
+}
+.select-container { 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; 
+}
+
+select{
+    color: rgb(118, 118, 118);
+    justify-content: space-between;
+    height: 40px;  
+}

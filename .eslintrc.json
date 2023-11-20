@@ -19,7 +19,9 @@
   "rules": {
     "import/extensions": 0,
     "import/no-unresolved": 0,
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "react/no-unescaped-entities": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   },
   "ignorePatterns": ["node_modules/"]
 }
