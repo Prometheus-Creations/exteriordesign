@@ -47,6 +47,7 @@ function Edit({ isLogged, setIsLogged }) {
     			headers: {
       				'Content-Type': 'application/json',
     			},
+				maxRedirects: 10
   			});
 			setVehicleData({});
 			navigate('/inventory');

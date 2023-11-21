@@ -42,6 +42,7 @@ function Post({ isLogged, setIsLogged }) {
 				headers: {
 					'Content-Type': 'application/json',
 				},
+				maxRedirects: 10
 			})
 			console.log('After Axios Post Request');
 			setVehicleData({
