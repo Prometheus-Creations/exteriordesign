@@ -37,7 +37,7 @@ function Post({ isLogged, setIsLogged }) {
 		e.preventDefault();
 		try {
 			console.log('Before Axios Post Request');
-			await axios.post('https://akbarsauto.com/post/', vehicleData, {
+			await axios.post('https://akbarsauto.com/post', vehicleData, {
 				withCredentials: true,
 				headers: {
 					'Content-Type': 'application/json',
