@@ -42,15 +42,20 @@ function Edit({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-    		await axios.put(`https://www.akbarsauto.com/edit/${id}`, vehicleData, {
+    		const response = await axios.put(`https://www.akbarsauto.com/edit/${id}`, vehicleData, {
     			withCredentials: true, 
     			headers: {
       				'Content-Type': 'application/json',
     			},
 				maxRedirects: 10
   			});
-			setVehicleData({});
-			navigate('/inventory');
+			if(response.data.message === 'Car successfully updated') {
+				setVehicleData({});
+				navigate('/inventory');
+			}
+			else {
+				console.error('Update failed with status:', response.status);
+			}
 		} 
 		catch (error) {
 			console.error('Error Updating Car:', error);
@@ -67,35 +72,35 @@ function Edit({ isLogged, setIsLogged }) {
 	};
 
 	return (
-					<div>
-						<Header  isLogged={isLogged} setIsLogged={setIsLogged}/>
-							<h1 className="edit-heading">Edit Vehicle</h1>
-							<div>
-								<form className="editform">
-									<label  htmlFor="title" className="input-label" > Title: </label>
-									<input id="title"  type="text" name="Title" className="vehicle-info" placeholder="Year Make Model"  onChange={handleChange} value={vehicleData.Title}/>
-									<label htmlFor="miles" className="input-label" > Mileage: </label>
-									<input id="miles" name="Mileage" className="vehicle-info" placeholder="0000" onChange={handleChange} value={vehicleData.Mileage}/>
-									<label htmlFor="engine" className="input-label" > Engine: </label>
-									<input id="engine" name="Engine" className="vehicle-info" placeholder="3.4L 6 Cylinders" onChange={handleChange} value={vehicleData.Engine} />
-									<label htmlFor="exterior" className="input-label" > Exterior Color: </label>						
-									<input id="exterior" name="Exterior_color" className="vehicle-info" placeholder="Exterior Color" onChange={handleChange} value={vehicleData.Exterior_color}/>
-									<label htmlFor="interior" className="input-label" > Interior Color: </label>			
-									<input id="interior" name="Interior_color" className="vehicle-info" placeholder="Interior Color" onChange={handleChange} value={vehicleData.Interior_color}/>
-									<label htmlFor="vin" className="input-label" > Vin: </label>						
-									<input id="vin" name="Vin" className="vehicle-info" placeholder="Vin Number" onChange={handleChange} value={vehicleData.Vin}/>						
-									<label htmlFor="description" className="input-label"> Description: </label>			
-									<textarea name="Description" id="description" className="vehicle-description" placeholder="Description" onChange={handleChange} value={vehicleData.Description}/>
-									<label htmlFor="price" className="input-label" > $ Price: </label>						
-									<input name="Price" id="price" className="vehicle-price" placeholder="$$$$$" onChange={handleChange} value={vehicleData.Price}/>
-									<label htmlFor="image" className="input-label"> Upload Image: </label>
-									<input name="Image" id="image" type="text"  onChange={handleChange} className="vehicle-info" value={vehicleData.Image} placeholder="Image Url/Path"/>
-									<button onClick={handleSubmit} className="update-button" type="submit">Update</button>
-								</form>
-							</div>
-						<Footer />
-					</div>
-				)
+				<div>
+					<Header  isLogged={isLogged} setIsLogged={setIsLogged}/>
+						<h1 className="edit-heading">Edit Vehicle</h1>
+						<div>
+							<form className="editform">
+								<label  htmlFor="title" className="input-label" > Title: </label>
+								<input id="title"  type="text" name="Title" className="vehicle-info" placeholder="Year Make Model"  onChange={handleChange} value={vehicleData.Title}/>
+								<label htmlFor="miles" className="input-label" > Mileage: </label>
+								<input id="miles" name="Mileage" className="vehicle-info" placeholder="0000" onChange={handleChange} value={vehicleData.Mileage}/>
+								<label htmlFor="engine" className="input-label" > Engine: </label>
+								<input id="engine" name="Engine" className="vehicle-info" placeholder="3.4L 6 Cylinders" onChange={handleChange} value={vehicleData.Engine} />
+								<label htmlFor="exterior" className="input-label" > Exterior Color: </label>						
+								<input id="exterior" name="Exterior_color" className="vehicle-info" placeholder="Exterior Color" onChange={handleChange} value={vehicleData.Exterior_color}/>
+								<label htmlFor="interior" className="input-label" > Interior Color: </label>			
+								<input id="interior" name="Interior_color" className="vehicle-info" placeholder="Interior Color" onChange={handleChange} value={vehicleData.Interior_color}/>
+								<label htmlFor="vin" className="input-label" > Vin: </label>						
+								<input id="vin" name="Vin" className="vehicle-info" placeholder="Vin Number" onChange={handleChange} value={vehicleData.Vin}/>						
+								<label htmlFor="description" className="input-label"> Description: </label>			
+								<textarea name="Description" id="description" className="vehicle-description" placeholder="Description" onChange={handleChange} value={vehicleData.Description}/>
+								<label htmlFor="price" className="input-label" > $ Price: </label>						
+								<input name="Price" id="price" className="vehicle-price" placeholder="$$$$$" onChange={handleChange} value={vehicleData.Price}/>
+								<label htmlFor="image" className="input-label"> Upload Image: </label>
+								<input name="Image" id="image" type="text"  onChange={handleChange} className="vehicle-info" value={vehicleData.Image} placeholder="Image Url/Path"/>
+								<button onClick={handleSubmit} className="update-button" type="submit">Update</button>
+							</form>
+						</div>
+					<Footer />
+				</div>
+			)
 	
 	
 }

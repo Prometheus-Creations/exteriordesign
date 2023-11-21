@@ -37,7 +37,7 @@ function Post({ isLogged, setIsLogged }) {
 		e.preventDefault();
 		try {
 			console.log('Before Axios Post Request');
-			await axios.post('https://www.akbarsauto.com/post', vehicleData, {
+			const response = await axios.post('https://www.akbarsauto.com/post', vehicleData, {
 				withCredentials: true,
 				headers: {
 					'Content-Type': 'application/json',
@@ -45,18 +45,23 @@ function Post({ isLogged, setIsLogged }) {
 				maxRedirects: 10
 			})
 			console.log('After Axios Post Request');
-			setVehicleData({
-				Title: '',
-				Mileage: 0,
-				Engine: '',
-				Exterior_color: '',
-				Interior_color: '',
-				Vin: '',
-				Description: '',
-				Price: 0,
-				Image: '',
-			})
-			 navigate('/inventory');
+			if (response.data.message === 'Car successfully posted') {
+				setVehicleData({
+					Title: '',
+					Mileage: 0,
+					Engine: '',
+					Exterior_color: '',
+					Interior_color: '',
+					Vin: '',
+					Description: '',
+					Price: 0,
+					Image: '',
+				});
+				navigate('/inventory'); 
+			} 
+			else {
+				console.error('Post failed with status:', response.status);
+			}
 		}
 		catch(error) {
 			console.error('Error Adding Car:', error)
