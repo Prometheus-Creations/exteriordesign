@@ -36,7 +36,9 @@ function Post({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
+			console.log('Before Axios Post Request');
 			await axios.post('https://akbarsauto.com/post', vehicleData)
+			console.log('After Axios Post Request');
 			setVehicleData({
 				Title: '',
 				Mileage: 0,
@@ -52,6 +54,7 @@ function Post({ isLogged, setIsLogged }) {
 		}
 		catch(error) {
 			console.error('Error Adding Car:', error)
+			console.log('Error Details:', error.response);
 		}
 	};
 
