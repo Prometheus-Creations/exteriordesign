@@ -24,11 +24,13 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const fetchCars = async () => {
         try {
-            const response = await axios.get('https://akbarsauto.com/inventory', {
+            const response = await axios.get('https://www.akbarsauto.com/inventory', {
                 withCredentials: true,
                 maxRedirects: 10
             });
-            setCars(response.data);
+            if(response.data.message === 'Found inventory'){
+                setCars(response.data);
+            }
         } catch (error) {
             console.error("Error Fetching Data:", error);
         }
@@ -41,33 +43,36 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const deleteCar = async (id) => {
         try {
-            const deletedCar = await axios.delete(`https://akbarsauto.com/delete/${id}`, {
+            const response = await axios.delete(`https://www.akbarsauto.com/delete/${id}`, {
                 withCredentials: true, 
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 maxRedirects: 10
             });
+            if(response.data.message === 'Vehicle Deleted') {
+                fetchCars(); 
+            }
 
-            console.log("Deleted Car:", deletedCar);
-            fetchCars(); 
-
-        } catch (error) {
+        } 
+        catch (error) {
             console.error("Error Deleting Data:", error);
         }
     };
 
     const editCar = async (id) => {
         try {
-            const response = await axios.get(`https://akbarsauto.com/inventory/${id}`, {
+            const response = await axios.get(`https://www.akbarsauto.com/inventory/${id}`, {
                 withCredentials: true, 
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 maxRedirects: 10
             });
-            const carData = response.data;
-            navigate(`/edit/${id}`, { state: { carData} });
+            if(response.data.message === 'Heres your vehicle') {
+                const carData = response.data;
+                navigate(`/edit/${id}`, { state: { carData} });
+            }
         } 
         catch (error) {
             console.error("Error Fetching Car Data:", error);
