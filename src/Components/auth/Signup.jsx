@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-useless-fragment */
 import React, {useState} from "react";
 import {Form, Button, Card, Container} from "react-bootstrap"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from 'react-router-dom';
 import Header from "../Header";
 import Footer from "../Footer";
 import { auth } from "../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { Link } from 'react-router-dom';
 
 
 function SignUp ({isLogged, setIsLoggedIn}) {
@@ -41,8 +45,8 @@ function SignUp ({isLogged, setIsLoggedIn}) {
 									<Card.Body>
 										<h2 className="text-center mb-4">Register</h2>
 										<Form onSubmit={signUp}>
-											<input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-											<input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+											<input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+											<input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
 											<Button className="w-100" type="submit">
 												Register
 											</Button>
