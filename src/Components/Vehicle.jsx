@@ -26,6 +26,7 @@ function Vehicle({ isLogged, setIsLogged }){
         try {
             const response = await axios.get('https://akbarsauto.com/inventory', {
                 withCredentials: true,
+                maxRedirects: 10
             });
             setCars(response.data);
         } catch (error) {
@@ -45,6 +46,7 @@ function Vehicle({ isLogged, setIsLogged }){
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                maxRedirects: 10
             });
 
             console.log("Deleted Car:", deletedCar);
@@ -62,6 +64,7 @@ function Vehicle({ isLogged, setIsLogged }){
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                maxRedirects: 10
             });
             const carData = response.data;
             navigate(`/edit/${id}`, { state: { carData} });
