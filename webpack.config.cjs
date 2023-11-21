@@ -53,6 +53,6 @@ module.exports = {
       filename: './index.html',
     }),
   ],
-  watch: true,
+  watch: false
 };
 
