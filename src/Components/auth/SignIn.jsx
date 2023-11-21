@@ -1,10 +1,14 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable no-console */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, {useState} from "react";
 import {Form, Button, Card, Container} from "react-bootstrap"
+import { Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "firebase/auth";
 import Header from "../Header";
 import Footer from "../Footer";
 import { auth } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { Link } from 'react-router-dom';
 import "../../css-styling/Signin.css"
 
 
@@ -43,8 +47,8 @@ function SignIn ({ isLogged, setIsLogged }) {
 							<Card.Body>
 								<h2 className="text-center mb-4">Log In</h2>
 								<Form onSubmit={signIn}>
-									<input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-									<input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+									<input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+									<input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
 									<Button className="w-100" type="submit">
 										Log In
 									</Button>

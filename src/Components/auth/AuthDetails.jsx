@@ -1,6 +1,11 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, {useEffect, useState} from "react";
-import { auth } from "../../firebase";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 function AuthDetails({ isLogged, setIsLogged }) {
 	const [authUser, setAuthUser] = useState(null);
