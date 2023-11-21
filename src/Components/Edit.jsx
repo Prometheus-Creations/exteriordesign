@@ -42,12 +42,26 @@ function Edit({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-    		await axios.put(`https://akbarsauto.com/edit/${id}`, vehicleData);
+    		await axios.put(`https://akbarsauto.com/edit/${id}`, vehicleData, {
+    			withCredentials: true, 
+    			headers: {
+      				'Content-Type': 'application/json',
+    			},
+  			});
 			setVehicleData({});
 			navigate('/inventory');
 		} 
 		catch (error) {
 			console.error('Error Updating Car:', error);
+			if (error.response) {
+				console.error('Response Data:', error.response.data);
+				console.error('Response Status:', error.response.status);
+				console.error('Response Headers:', error.response.headers);
+			} else if (error.request) {
+				console.error('No Response Received');
+			} else {
+				console.error('Error Message:', error.message);
+			}
 		}
 	};
 
