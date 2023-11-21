@@ -24,13 +24,14 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const fetchCars = async () => {
         try {
-            const response = await axios.get('https://akbarsauto.com/inventory');
+            const response = await axios.get('https://akbarsauto.com/inventory', {
+                withCredentials: true,
+            });
             setCars(response.data);
-        }
-        catch(error) {
+        } catch (error) {
             console.error("Error Fetching Data:", error);
         }
-    }
+    };
 
       useEffect(() => {
         fetchCars()
@@ -39,20 +40,33 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const deleteCar = async (id) => {
         try {
-            const deletedCar = await axios.delete(`https://akbarsauto.com/delete/${id}`);
+            const deletedCar = await axios.delete(`https://akbarsauto.com/delete/${id}`, {
+                withCredentials: true, 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
             console.log("Deleted Car:", deletedCar);
-            fetchCars();
+            fetchCars(); 
+
         } catch (error) {
             console.error("Error Deleting Data:", error);
         }
-    }
+    };
 
     const editCar = async (id) => {
         try {
-            const response = await axios.get(`https://akbarsauto.com/inventory/${id}`);
+            const response = await axios.get(`https://akbarsauto.com/inventory/${id}`, {
+                withCredentials: true, 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
             const carData = response.data;
             navigate(`/edit/${id}`, { state: { carData} });
-        } catch (error) {
+        } 
+        catch (error) {
             console.error("Error Fetching Car Data:", error);
         }
     }

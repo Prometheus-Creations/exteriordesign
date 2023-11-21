@@ -37,7 +37,12 @@ function Post({ isLogged, setIsLogged }) {
 		e.preventDefault();
 		try {
 			console.log('Before Axios Post Request');
-			await axios.post('https://akbarsauto.com/post', vehicleData)
+			await axios.post('https://akbarsauto.com/post', vehicleData, {
+				withCredentials: true,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			})
 			console.log('After Axios Post Request');
 			setVehicleData({
 				Title: '',
@@ -54,7 +59,17 @@ function Post({ isLogged, setIsLogged }) {
 		}
 		catch(error) {
 			console.error('Error Adding Car:', error)
-			console.log('Error Details:', error.response);
+			 if (error.response) {
+				console.error('Response Data:', error.response.data);
+				console.error('Response Status:', error.response.status);
+				console.error('Response Headers:', error.response.headers);
+			} 
+			else if (error.request) {
+				console.error('No Response Received');
+			} 
+			else {
+				console.error('Error Message:', error.message);
+			}
 		}
 	};
 
