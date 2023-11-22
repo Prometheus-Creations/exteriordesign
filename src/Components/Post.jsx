@@ -36,7 +36,6 @@ function Post({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			console.log('Before Axios Post Request');
 			const response = await axios.post('https://akbarsauto.com/post', vehicleData, {
 				withCredentials: true,
 				headers: {
@@ -44,7 +43,6 @@ function Post({ isLogged, setIsLogged }) {
 				},
 				maxRedirects: 10
 			})
-			console.log('After Axios Post Request');
 			if (response.data.message === 'Car successfully posted') {
 				setVehicleData({
 					Title: '',
