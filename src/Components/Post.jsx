@@ -37,11 +37,10 @@ function Post({ isLogged, setIsLogged }) {
 		e.preventDefault();
 		try {
 			const response = await axios.post('https://akbarsauto.com/post', vehicleData, {
-				withCredentials: true,
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				maxRedirects: 10
+				maxRedirects: 5
 			})
 			if (response.data.message === 'Car successfully posted') {
 				setVehicleData({
