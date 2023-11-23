@@ -25,8 +25,7 @@ function Vehicle({ isLogged, setIsLogged }){
     const fetchCars = async () => {
         try {
             const response = await axios.get('https://akbarsauto.com/inventory', {
-                withCredentials: true,
-                maxRedirects: 10
+                withCredentials: true
             });
             if(response.data.message === 'Found inventory'){
                 setCars(response.data);
@@ -47,8 +46,7 @@ function Vehicle({ isLogged, setIsLogged }){
                 withCredentials: true, 
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                maxRedirects: 10
+                }
             });
             if(response.data.message === 'Vehicle Deleted') {
                 fetchCars(); 
@@ -66,8 +64,7 @@ function Vehicle({ isLogged, setIsLogged }){
                 withCredentials: true, 
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                maxRedirects: 10
+                }
             });
             if(response.data.message === 'Heres your vehicle') {
                 const carData = response.data;
