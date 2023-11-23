@@ -25,7 +25,7 @@ function Vehicle({ isLogged, setIsLogged }){
     const fetchCars = async () => {
         try {
             console.log('Client: Fetching data from server');
-            const response = await axios.get('https://akbarsauto.com/inventory/', {
+            const response = await axios.get('https://akbarsauto.com/inventory', {
                 withCredentials: true
             });
             if(response.status === 200){
