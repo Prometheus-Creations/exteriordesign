@@ -41,7 +41,7 @@ function Post({ isLogged, setIsLogged }) {
 					'Content-Type': 'application/json',
 				}
 			})
-			if (response.data.message === 'Car successfully posted') {
+			if (response.status === 201) {
 				setVehicleData({
 					Title: '',
 					Mileage: 0,

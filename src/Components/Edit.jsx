@@ -48,7 +48,7 @@ function Edit({ isLogged, setIsLogged }) {
       				'Content-Type': 'application/json',
     			},
   			});
-			if(response.data.message === 'Car successfully updated') {
+			if(response.status === 200) {
 				setVehicleData({});
 				navigate('/inventory');
 			}

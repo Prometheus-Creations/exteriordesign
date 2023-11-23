@@ -27,7 +27,7 @@ function Vehicle({ isLogged, setIsLogged }){
             const response = await axios.get('https://akbarsauto.com/inventory', {
                 withCredentials: true
             });
-            if(response.data.message === 'Found inventory'){
+            if(response.status === 200){
                 setCars(response.data);
             }
         } catch (error) {
@@ -48,7 +48,7 @@ function Vehicle({ isLogged, setIsLogged }){
                     'Content-Type': 'application/json',
                 }
             });
-            if(response.data.message === 'Vehicle Deleted') {
+            if(response.status === 200) {
                 fetchCars(); 
             }
 
@@ -66,7 +66,7 @@ function Vehicle({ isLogged, setIsLogged }){
                     'Content-Type': 'application/json',
                 }
             });
-            if(response.data.message === 'Heres your vehicle') {
+            if(response.status === 200) {
                 const carData = response.data;
                 navigate(`/edit/${id}`, { state: { carData} });
             }
