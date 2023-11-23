@@ -57,6 +57,7 @@ function Post({ isLogged, setIsLogged }) {
 			} 
 			else {
 				console.error('Post failed with status:', response.status);
+				console.error('Response Data:', response.data);
 			}
 		}
 		catch(error) {
