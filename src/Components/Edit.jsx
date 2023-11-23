@@ -47,7 +47,6 @@ function Edit({ isLogged, setIsLogged }) {
     			headers: {
       				'Content-Type': 'application/json',
     			},
-				maxRedirects: 10
   			});
 			if(response.data.message === 'Car successfully updated') {
 				setVehicleData({});
