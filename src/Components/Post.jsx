@@ -36,7 +36,7 @@ function Post({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('https://agitkbarsauto.com/post', vehicleData, {
+			const response = await axios.post('https://akbarsauto.com/post', vehicleData, {
 				headers: {
 					'Content-Type': 'application/json',
 				}
