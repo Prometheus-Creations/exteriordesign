@@ -36,11 +36,14 @@ function Post({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
+			console.log('Client: Post Front');
+       		console.log('Vehicle Data:', vehicleData); 
 			const response = await axios.post('https://akbarsauto.com/post', vehicleData, {
 				headers: {
 					'Content-Type': 'application/json',
 				}
 			})
+			console.log('Response:', response);
 			if (response.status === 201) {
 				setVehicleData({
 					Title: '',
