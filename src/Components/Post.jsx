@@ -33,19 +33,22 @@ function Post({ isLogged, setIsLogged }) {
 		}));
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		console.log('handleSubmit called');
 		e.preventDefault();
-		try {
-			console.log('Client: Post Front');
-       		console.log('Vehicle Data:', vehicleData); 
-			const responsePromise = axios.post('https://akbarsauto.com/post', vehicleData, {
-				headers: {
-					'Content-Type': 'application/json',
-				}
-			})
+
+		console.log('Client: Post Front');
+		console.log('Vehicle Data:', vehicleData);
+
+		axios.post('https://akbarsauto.com/post', vehicleData, {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+		.then(response => {
 			console.log('After axios.post');
-			const response = await responsePromise;
+			console.log('Response:', response);
+
 			if (response.status === 201) {
 				setVehicleData({
 					Title: '',
@@ -58,29 +61,26 @@ function Post({ isLogged, setIsLogged }) {
 					Price: 0,
 					Image: '',
 				});
-				navigate('/inventory'); 
-			} 
-			else {
+				navigate('/inventory');
+			} else {
 				console.error('Post failed with status:', response.status);
 				console.error('Response Data:', response.data);
 			}
-		}
-		catch(error) {
-			console.error('Error Adding Car:', error)
-			 if (error.response) {
+		})
+		.catch(error => {
+			console.error('Error Adding Car:', error);
+
+			if (error.response) {
 				console.error('Response Data:', error.response.data);
 				console.error('Response Status:', error.response.status);
 				console.error('Response Headers:', error.response.headers);
-			} 
-			else if (error.request) {
+			} else if (error.request) {
 				console.error('No Response Received');
-			} 
-			else {
+			} else {
 				console.error('Error Message:', error.message);
 			}
-		}
+		});
 	};
-
 	return (
 		<>
 			{
