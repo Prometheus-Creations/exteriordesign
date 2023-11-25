@@ -39,12 +39,13 @@ function Post({ isLogged, setIsLogged }) {
 		try {
 			console.log('Client: Post Front');
        		console.log('Vehicle Data:', vehicleData); 
-			const response = axios.post('https://akbarsauto.com/post', vehicleData, {
+			const responsePromise = axios.post('https://akbarsauto.com/post', vehicleData, {
 				headers: {
 					'Content-Type': 'application/json',
 				}
 			})
-			console.log('Response:', response);
+			console.log('After axios.post');
+			const response = await responsePromise;
 			if (response.status === 201) {
 				setVehicleData({
 					Title: '',
