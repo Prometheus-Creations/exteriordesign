@@ -25,7 +25,7 @@ function Vehicle({ isLogged, setIsLogged }){
     const fetchCars = async () => {
         try {
             console.log('Client: Fetching data from server');
-            const response = await axios.get('https://akbarsauto.com/inventory');
+            const response = await axios.get('http://54.177.239.211:3000/inventory');
             if(response.status === 200){
             console.log('Client: Successfully received data from server');
                 setCars(response.data);
@@ -42,7 +42,7 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const deleteCar = async (id) => {
         try {
-            const response = await axios.delete(`https://akbarsauto.com/delete/${id}`, {
+            const response = await axios.delete(`http://54.177.239.211:3000/delete/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -59,7 +59,7 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const editCar = async (id) => {
         try {
-            const response = await axios.get(`https://akbarsauto.com/inventory/${id}`, {
+            const response = await axios.get(`http://54.177.239.211:3000/inventory/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
