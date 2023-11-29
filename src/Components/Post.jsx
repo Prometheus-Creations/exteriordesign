@@ -40,7 +40,7 @@ function Post({ isLogged, setIsLogged }) {
 		console.log('Client: Post Front');
 		console.log('Vehicle Data:', vehicleData);
 
-		axios.post('https://akbarsauto.com/post', vehicleData, {
+		axios.post('http://54.177.239.211:3000/post', vehicleData, {
 			headers: {
 				'Content-Type': 'application/json',
 			},
