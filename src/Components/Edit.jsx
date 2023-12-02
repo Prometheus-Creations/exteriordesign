@@ -42,7 +42,7 @@ function Edit({ isLogged, setIsLogged }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-    		const response = await axios.put(`https://54.177.239.211:3000/edit/${id}`, vehicleData, {
+    		const response = await axios.put(`https://akbarsengine.com/edit/${id}`, vehicleData, {
     			headers: {
       				'Content-Type': 'application/json',
     			},
