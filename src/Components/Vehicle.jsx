@@ -24,11 +24,10 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const fetchCars = async () => {
         try {
-            console.log('Getting Data')
             const response = await axios.get('https://akbarsengine.com/inventory');
             console.log('Data retrieved', response.data)
             if(response.status === 200){
-                console.log('Client: Successfully received data from server');
+            console.log('Client: Successfully received data from server');
                 setCars(response.data);
             }
         } catch (error) {
@@ -79,11 +78,11 @@ function Vehicle({ isLogged, setIsLogged }){
         <>
 			{!isLogged ? (
 				<div>
-            <Header isLogged={isLogged} setIsLogged={setIsLogged} />
+                    <Header isLogged={isLogged} setIsLogged={setIsLogged} />
             <h1 className="inventory-heading ">Vehicle Inventory</h1>
             <div className="section">
                 <div className="vehicles-side">
-                    {Array.isArray(cars) && cars.length > 0? (
+                    {Array.isArray(cars) && cars.length > 0 ? (
                         cars.map((car) => (
                             <div className="vehicles" >
                                 <img className="image" src={car.Image} alt="vehicle_image" />
@@ -106,22 +105,19 @@ function Vehicle({ isLogged, setIsLogged }){
                             </div>
                         ))
                     ) : (
-                        <Link to="/post" className="post-button">No Cars In Inventory! <br /> Want to post a car?</Link>
+                        <Link to="/signin" className="post-button"> No Cars In Inventory! <br /> Want to post a car? <br /> Sign In Here!</Link>
                     )}
                 </div>
             </div>
             <Footer />
         </div>
-
 				) : (
         <div>
             <Header isLogged={isLogged} setIsLogged={setIsLogged} />
             <h1 className="inventory-heading ">Vehicle Inventory</h1>
             <div className="section">
                 <div className="vehicles-side">
-                    {cars.length === 0 ? (
-                        <Link to="/post" className="post-button">No Cars In Inventory! <br /> Want to post a car?</Link>
-                    ) : (
+                    {Array.isArray(cars) && cars.length > 0 ? (
                         cars.map((car) => (
                             <div className="vehicles" >
                                 <img className="image" src={car.Image} alt="vehicle_image" />
@@ -145,6 +141,8 @@ function Vehicle({ isLogged, setIsLogged }){
                                 </div>
                             </div>
                         ))
+                    ) : (
+                        <Link to="/post" className="post-button">No Cars In Inventory! <br /> Want to post a car?</Link>
                     )}
                 </div>
             </div>
