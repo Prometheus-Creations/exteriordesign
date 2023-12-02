@@ -36,19 +36,12 @@ function Post({ isLogged, setIsLogged }) {
 	const handleSubmit = (e) => {
 		console.log('handleSubmit called');
 		e.preventDefault();
-
-		console.log('Client: Post Front');
-		console.log('Vehicle Data:', vehicleData);
-
 		axios.post('https://akbarsengine.com/post', vehicleData, {
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		})
 		.then(response => {
-			console.log('After axios.post');
-			console.log('Response:', response);
-
 			if (response.status === 201) {
 				setVehicleData({
 					Title: '',
@@ -69,16 +62,6 @@ function Post({ isLogged, setIsLogged }) {
 		})
 		.catch(error => {
 			console.error('Error Adding Car:', error);
-
-			if (error.response) {
-				console.error('Response Data:', error.response.data);
-				console.error('Response Status:', error.response.status);
-				console.error('Response Headers:', error.response.headers);
-			} else if (error.request) {
-				console.error('No Response Received');
-			} else {
-				console.error('Error Message:', error.message);
-			}
 		});
 	};
 	return (
