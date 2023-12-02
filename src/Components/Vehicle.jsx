@@ -26,10 +26,7 @@ function Vehicle({ isLogged, setIsLogged }){
         try {
             const response = await axios.get('https://akbarsengine.com/inventory');
             console.log('Data retrieved', response.data)
-            if(response.status === 200){
-            console.log('Client: Successfully received data from server');
-                setCars(response.data);
-            }
+            setCars(response.data);
         } catch (error) {
             console.error("Error Fetching Data:", error);
         }
@@ -42,15 +39,8 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const deleteCar = async (id) => {
         try {
-            const response = await axios.delete(`https://akbarsengine.com/delete/${id}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-            if(response.status === 200) {
-                fetchCars(); 
-            }
-
+            await axios.delete(`https://akbarsengine.com/delete/${id}`);
+            fetchCars(); 
         } 
         catch (error) {
             console.error("Error Deleting Data:", error);
@@ -59,15 +49,10 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const editCar = async (id) => {
         try {
-            const response = await axios.get(`https://akbarsengine.com/inventory/${id}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-            if(response.status === 200) {
-                const carData = response.data;
-                navigate(`/edit/${id}`, { state: { carData} });
-            }
+            const response = await axios.get(`https://akbarsengine.com/inventory/${id}`);
+            const carData = response.data; 
+            navigate(`/edit/${id}`, { state: { carData} });
+            
         } 
         catch (error) {
             console.error("Error Fetching Car Data:", error);
