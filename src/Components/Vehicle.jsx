@@ -26,7 +26,7 @@ function Vehicle({ isLogged, setIsLogged }){
         try {
             const response = await axios.get('https://akbarsengine.com/inventory');
             console.log('Data retrieved', response.data)
-            setCars(response.data);
+            setCars(response.data.data);
         } catch (error) {
             console.error("Error Fetching Data:", error);
         }
