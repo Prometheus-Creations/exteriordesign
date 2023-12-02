@@ -50,7 +50,7 @@ function Vehicle({ isLogged, setIsLogged }){
     const editCar = async (id) => {
         try {
             const response = await axios.get(`https://akbarsengine.com/inventory/${id}`);
-            const carData = response.data; 
+            const carData = response.data.data; 
             navigate(`/edit/${id}`, { state: { carData} });
             
         } 
