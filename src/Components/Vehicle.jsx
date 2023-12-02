@@ -24,10 +24,11 @@ function Vehicle({ isLogged, setIsLogged }){
 
     const fetchCars = async () => {
         try {
-            console.log('Client: Fetching data from server');
+            console.log('Getting Data')
             const response = await axios.get('https://akbarsengine.com/inventory');
+            console.log('Data retrieved', response.data)
             if(response.status === 200){
-            console.log('Client: Successfully received data from server');
+                console.log('Client: Successfully received data from server');
                 setCars(response.data);
             }
         } catch (error) {
@@ -82,9 +83,7 @@ function Vehicle({ isLogged, setIsLogged }){
             <h1 className="inventory-heading ">Vehicle Inventory</h1>
             <div className="section">
                 <div className="vehicles-side">
-                    {cars.length === 0 ? (
-                        <Link to="/post" className="post-button">No Cars In Inventory! <br /> Want to post a car?</Link>
-                    ) : (
+                    {Array.isArray(cars) && cars.length > 0? (
                         cars.map((car) => (
                             <div className="vehicles" >
                                 <img className="image" src={car.Image} alt="vehicle_image" />
@@ -106,6 +105,8 @@ function Vehicle({ isLogged, setIsLogged }){
                                 </div>
                             </div>
                         ))
+                    ) : (
+                        <Link to="/post" className="post-button">No Cars In Inventory! <br /> Want to post a car?</Link>
                     )}
                 </div>
             </div>
